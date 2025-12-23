@@ -3,52 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional Credit Card Generator for Developers & QA Teams. Generate Luhn-valid test cards with custom BIN patterns. For testing only.">
-    <meta name="keywords" content="credit card generator, test cards, BIN generator, payment testing, developer tools, QA testing">
-    <meta name="author" content="SAMBAT Pro">
+    <meta name="description" content="Free Credit Card Generator Tool - Generate valid test credit card numbers with BIN patterns. Supports Visa, MasterCard, Amex, Discover. Perfect for developers and testing.">
+    <meta name="keywords" content="credit card generator, test credit cards, BIN generator, card number generator, payment testing, developer tools">
+    <meta name="author" content="UNCODER">
     <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph & Twitter -->
-    <meta property="og:title" content="SAMBAT Pro - Professional Credit Card Generator">
-    <meta property="og:description" content="Advanced test card generator for payment system testing. Custom BIN patterns, Luhn validation, multiple formats.">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="ReNamso - Free Credit Card Generator">
+    <meta property="og:description" content="Free online credit card generator for testing and development. Generate valid card numbers with custom BIN patterns.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yourdomain.pages.dev/">
+    <meta property="og:url" content="https://uncoder.eu.org/cc-gen/">
+    <meta property="og:image" content="https://uncoder.eu.org/cc-gen/renamso.svg">
+
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SAMBAT Pro - Professional Credit Card Generator">
+    <meta name="twitter:title" content="ReNamso - Free Credit Card Generator">
+    <meta name="twitter:description" content="Free tool to generate test credit card numbers for development and testing purposes.">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://uncoder.eu.org/cc-gen/">
+
+    <title>ReNamso - Free Credit Card Generator | UNCODER</title>
     
-    <title>SAMBAT Pro - Professional Credit Card Generator | Testing Tools</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
     
-    <!-- Modern Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" as="style">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "ReNamso - Free Credit Card Generator",
+      "description": "Free online tool to generate valid test credit card numbers for development and testing purposes",
+      "url": "https://uncoder.eu.org/cc-gen/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "permissions": "browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "UNCODER"
+      }
+    }
+    </script>
+
     <style>
         :root {
-            /* Fintech Professional Palette [web:7] */
-            --primary: #048cfc;
-            --primary-dark: #05478a;
-            --primary-light: #5694de;
-            --success: #10b981;
-            --warning: #f59e0b;
-            --danger: #ef4444;
-            --dark: #1e293b;
-            --dark-2: #334155;
-            --gray: #64748b;
-            --light: #f8fafc;
-            --white: #ffffff;
-            --glass: rgba(255,255,255,0.9);
-            --glass-dark: rgba(30,41,59,0.9);
-            
-            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-            --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-            
-            --radius: 16px;
-            --radius-sm: 12px;
-            --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --primary-color: #6366f1;
+            --primary-hover: #4f46e5;
+            --secondary-color: #64748b;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --dark-color: #020617;
+            --light-color: #0b1120;
+            --border-color: #1e293b;
+            --border-radius: 16px;
+            --border-radius-sm: 10px;
+            --box-shadow: 0 18px 45px rgba(15, 23, 42, 0.65);
+            --box-shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.45);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --glass-bg: linear-gradient(135deg, rgba(15,23,42,0.85), rgba(15,23,42,0.75));
+            --glass-border: 1px solid rgba(148, 163, 184, 0.35);
+        }
+
+        /* Smooth animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+        }
+
+        @keyframes borderGlow {
+            0% { box-shadow: 0 0 0 rgba(129, 140, 248, 0.4); }
+            100% { box-shadow: 0 0 25px rgba(129, 140, 248, 0.8); }
         }
 
         * {
@@ -56,797 +97,1546 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            background: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 100%);
-            color: var(--dark);
-            line-height: 1.6;
+            font-family: 'Roboto Mono', monospace;
+            transition: var(--transition);
+            background: radial-gradient(circle at top, #0f172a 0, #020617 45%, #000 100%);
+            color: #e2e8f0;
             min-height: 100vh;
-            margin: 0;
-            padding-top: 80px;
+            padding-bottom: 2rem;
+            line-height: 1.6;
         }
 
-        body.dark-mode {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: var(--white);
+        body.light-mode {
+            --light-color: #f8fafc;
+            --dark-color: #0f172a;
+            --border-color: #e2e8f0;
+            background: radial-gradient(circle at top, #e5edff 0, #e2e8f0 50%, #cbd5f5 100%);
+            color: #0f172a;
         }
 
-        /* Theme Toggle */
         .theme-toggle {
             position: fixed;
-            top: 24px;
-            right: 24px;
+            top: 18px;
+            right: 18px;
+            cursor: pointer;
+            font-size: 1.25rem;
             z-index: 1000;
-            width: 52px;
-            height: 52px;
-            border-radius: 50%;
-            background: var(--glass);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(15,23,42,0.9);
+            backdrop-filter: blur(16px);
+            border-radius: 999px;
+            width: 48px;
+            height: 48px;
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
+            box-shadow: var(--box-shadow-soft);
+            border: 1px solid rgba(148, 163, 184, 0.4);
             transition: var(--transition);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .dark-mode .theme-toggle {
-            background: var(--glass-dark);
-            border-color: rgba(255,255,255,0.1);
         }
 
         .theme-toggle:hover {
-            transform: scale(1.05);
-            box-shadow: var(--shadow-xl);
+            transform: translateY(-2px) scale(1.02);
         }
 
-        /* Container */
+        .theme-toggle:active {
+            transform: scale(0.96);
+        }
+
+        .light-mode .theme-toggle {
+            background: rgba(255,255,255,0.75);
+            border-color: rgba(148, 163, 184, 0.6);
+        }
+
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+            max-width: 1240px;
+            margin-top: 3rem;
+            padding: 0 1rem;
         }
 
-        /* Header */
+        /* HEADER / LOGO BAR */
         .header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 3rem 0;
+            margin-bottom: 2rem;
+            animation: fadeIn 0.6s ease-out;
         }
 
-        .header h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
+        .header-inner {
+            position: relative;
+            overflow: hidden;
+            border-radius: 28px;
+            padding: 1.5rem 2rem;
+            background: radial-gradient(circle at top left, rgba(129, 140, 248, 0.22), transparent 55%),
+                        radial-gradient(circle at top right, rgba(45, 212, 191, 0.18), transparent 55%),
+                        rgba(15, 23, 42, 0.96);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            box-shadow: var(--box-shadow);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+
+        .light-mode .header-inner {
+            background: radial-gradient(circle at top left, rgba(129, 140, 248, 0.12), transparent 55%),
+                        radial-gradient(circle at top right, rgba(45, 212, 191, 0.1), transparent 55%),
+                        #ffffff;
+        }
+
+        .brand-block {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .logo-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 24px;
+            background: radial-gradient(circle at 20% 0%, #4f46e5 0, #22d3ee 40%, #0f172a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #e5e7eb;
+            box-shadow: 0 14px 30px rgba(59,130,246,0.8);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .logo-circle i {
+            font-size: 1.6rem;
+        }
+
+        .brand-text h1 {
+            font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-size: 1.7rem;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .brand-text h1 span {
+            background: linear-gradient(135deg, #a5b4fc, #38bdf8);
             -webkit-background-clip: text;
-            background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
         }
 
-        .header .lead {
-            font-size: 1.25rem;
-            color: var(--gray);
-            font-weight: 400;
-            max-width: 600px;
-            margin: 0 auto;
+        .brand-tag {
+            font-size: 0.8rem;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
         }
 
-        /* Main Grid */
-        .generator-grid {
+        .header-right {
+            text-align: right;
+            min-width: 180px;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.9rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(148, 163, 184, 0.5);
+            color: #e5e7eb;
+        }
+
+        .light-mode .pill {
+            background: rgba(255, 255, 255, 0.9);
+            color: #0f172a;
+        }
+
+        .header-metric {
+            margin-top: 0.4rem;
+            font-size: 0.78rem;
+            color: #9ca3af;
+        }
+
+        .light-mode .header-metric {
+            color: #6b7280;
+        }
+
+        /* MAIN LAYOUT */
+        .generator-container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-bottom: 3rem;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         @media (max-width: 992px) {
-            .generator-grid {
+            .generator-container {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
             }
         }
 
-        /* Cards */
-        .card {
-            background: var(--white);
-            border-radius: var(--radius);
-            padding: 2rem;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid rgba(0,0,0,0.05);
+        .form-section,
+        .result-section {
+            background: var(--glass-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow-soft);
+            border: var(--glass-border);
+            animation: fadeIn 0.5s ease-out;
             transition: var(--transition);
-            backdrop-filter: blur(10px);
         }
 
-        .dark-mode .card {
-            background: rgba(30,41,59,0.8);
-            border-color: rgba(255,255,255,0.1);
+        .form-section:hover,
+        .result-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 22px 50px rgba(15, 23, 42, 0.85);
         }
 
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-xl);
+        .light-mode .form-section,
+        .light-mode .result-section {
+            background: rgba(255,255,255,0.9);
+            border-color: rgba(148,163,184,0.6);
         }
 
-        .card-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+        .form-section {
+            padding: 1.6rem 1.6rem 1.8rem;
         }
 
-        .dark-mode .card-header {
-            border-bottom-color: rgba(255,255,255,0.1);
+        .result-section {
+            padding: 1.4rem 1.4rem 1.7rem;
         }
 
-        .card-header i {
-            color: var(--primary);
-            font-size: 1.25rem;
-        }
-
-        /* Form Elements */
-        .form-label {
+        .form-section h3,
+        .result-section h6 {
+            font-size: 0.95rem;
             font-weight: 600;
-            font-size: 0.875rem;
-            color: var(--dark);
-            margin-bottom: 0.5rem;
-            display: flex;
+            margin-bottom: 1.2rem;
+            color: #e5e7eb;
+        }
+
+        .light-mode .form-section h3,
+        .light-mode .result-section h6 {
+            color: #0f172a;
+        }
+
+        .section-label {
+            display: inline-flex;
             align-items: center;
-            gap: 0.25rem;
+            gap: 0.4rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: #9ca3af;
+            margin-bottom: 0.6rem;
         }
 
-        .dark-mode .form-label {
-            color: var(--white);
+        .section-label i {
+            font-size: 0.8rem;
         }
 
-        .form-control, .form-select {
-            background: rgba(255,255,255,0.8);
-            border: 2px solid rgba(0,0,0,0.05);
-            border-radius: var(--radius-sm);
-            padding: 0.875rem 1rem;
-            font-size: 1rem;
+        .form-label {
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 0.4rem;
+            color: #9ca3af;
+        }
+
+        .light-mode .form-label {
+            color: #6b7280;
+        }
+
+        .form-control,
+        .form-select {
+            background-color: rgba(15,23,42,0.85);
+            color: #e5e7eb;
+            border: 1px solid rgba(148, 163, 184, 0.45);
+            border-radius: var(--border-radius-sm);
+            padding: 0.6rem 0.85rem;
+            font-size: 0.85rem;
             transition: var(--transition);
-            font-family: 'Inter', monospace;
         }
 
-        .dark-mode .form-control,
-        .dark-mode .form-select {
-            background: rgba(255,255,255,0.1);
-            border-color: rgba(255,255,255,0.2);
-            color: var(--white);
+        .light-mode .form-control,
+        .light-mode .form-select {
+            background-color: rgba(248,250,252,0.9);
+            color: #0f172a;
+            border-color: rgba(148, 163, 184, 0.6);
         }
 
-        .form-control:focus, .form-select:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(4,140,252,0.1);
-            background: var(--white);
+        .form-control:focus,
+        .form-select:focus {
+            box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.4);
+            border-color: #818cf8;
             outline: none;
         }
 
-        .dark-mode .form-control:focus,
-        .dark-mode .form-select:focus {
-            background: rgba(255,255,255,0.15);
+        .form-text {
+            font-size: 0.7rem;
+            color: #6b7280;
+            margin-top: 0.35rem;
         }
 
-        /* Preset Buttons */
-        .preset-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-            gap: 0.75rem;
-            margin-top: 1rem;
-        }
-
-        .preset-btn {
-            padding: 0.75rem;
-            border: 2px solid rgba(0,0,0,0.05);
-            background: rgba(255,255,255,0.7);
-            border-radius: var(--radius-sm);
-            text-align: center;
-            font-weight: 600;
-            font-size: 0.875rem;
-            cursor: pointer;
-            transition: var(--transition);
-            white-space: nowrap;
-        }
-
-        .dark-mode .preset-btn {
-            background: rgba(255,255,255,0.1);
-            border-color: rgba(255,255,255,0.2);
-        }
-
-        .preset-btn:hover, .preset-btn.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-            transform: translateY(-1px);
-        }
-
-        /* Buttons */
         .btn {
-            border-radius: var(--radius-sm);
-            font-weight: 600;
-            padding: 0.875rem 1.5rem;
-            border: none;
-            cursor: pointer;
+            border-radius: 999px;
+            font-weight: 500;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.85rem;
             transition: var(--transition);
-            font-size: 0.95rem;
             position: relative;
             overflow: hidden;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            box-shadow: 0 4px 14px rgba(4,140,252,0.4);
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+            border-color: transparent;
+            box-shadow: 0 14px 35px rgba(79, 70, 229, 0.6);
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(4,140,252,0.5);
+            transform: translateY(-1px);
+            filter: brightness(1.05);
         }
 
         .btn-success {
-            background: linear-gradient(135deg, var(--success), #059669);
-            color: white;
-            box-shadow: 0 4px 14px rgba(16,185,129,0.4);
+            background: linear-gradient(135deg, var(--success-color), #059669);
+            border-color: transparent;
+            box-shadow: 0 12px 28px rgba(16, 185, 129, 0.55);
         }
 
-        .btn-success:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(16,185,129,0.5);
+        .btn-outline-secondary {
+            border-color: rgba(148, 163, 184, 0.65);
+            color: #cbd5f5;
+            background: transparent;
         }
 
-        /* Output */
-        #output {
-            background: rgba(0,0,0,0.02);
-            border: 2px solid rgba(0,0,0,0.05);
-            border-radius: var(--radius-sm);
-            font-family: 'Roboto Mono', monospace;
-            font-size: 0.85rem;
-            min-height: 300px;
-            resize: vertical;
+        .btn-outline-secondary:hover {
+            background-color: rgba(15,23,42,0.9);
         }
 
-        .dark-mode #output {
-            background: rgba(0,0,0,0.4);
-            border-color: rgba(255,255,255,0.2);
-            color: var(--white);
+        .light-mode .btn-outline-secondary {
+            color: #0f172a;
+            border-color: rgba(148, 163, 184, 0.8);
+        }
+
+        .light-mode .btn-outline-secondary:hover {
+            background-color: #e5e7eb;
+        }
+
+        .output-container {
+            position: relative;
         }
 
         .copy-btn {
             position: absolute;
             top: 12px;
             right: 12px;
-            background: rgba(255,255,255,0.9);
-            border: 1px solid rgba(0,0,0,0.1);
-            border-radius: var(--radius-sm);
-            padding: 0.5rem;
+            cursor: pointer;
+            font-size: 0.95rem;
+            color: #a5b4fc;
+            z-index: 10;
+            background: rgba(15,23,42,0.95);
+            border-radius: 999px;
+            padding: 7px 10px;
+            border: 1px solid rgba(129, 140, 248, 0.6);
+            transition: var(--transition);
+        }
+
+        .copy-btn:hover {
+            background-color: #111827;
+            color: #e5e7eb;
+        }
+
+        .light-mode .copy-btn {
+            background: #ffffff;
+            border-color: rgba(129, 140, 248, 0.6);
+            color: #4f46e5;
+        }
+
+        textarea {
+            resize: none;
+            height: 350px;
+            width: 100%;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.8rem;
+            line-height: 1.5;
+            border-radius: var(--border-radius-sm);
+            background: rgba(15,23,42,0.8);
+            color: #e2e8f0;
+            border-color: rgba(30,64,175,0.8);
+        }
+
+        .light-mode textarea {
+            background: #f9fafb;
+            color: #0f172a;
+            border-color: rgba(148, 163, 184, 0.7);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .action-buttons .btn {
+            flex: 1;
+        }
+
+        .card-preview {
+            background: radial-gradient(circle at top, rgba(15,23,42,0.95), rgba(15,23,42,0.92));
+            border-radius: 18px;
+            padding: 1rem 1.2rem;
+            margin-top: 1.25rem;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.84rem;
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            transition: var(--transition);
+            box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
+            background-image:
+                radial-gradient(circle at 0% 0%, rgba(129, 140, 248, 0.35), transparent 55%),
+                radial-gradient(circle at 100% 100%, rgba(45, 212, 191, 0.28), transparent 55%);
+        }
+
+        .card-preview h6 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            margin-bottom: 0.5rem;
+            color: #9ca3af;
+        }
+
+        .card-preview.updated {
+            animation: borderGlow 0.4s ease-out;
+        }
+
+        .light-mode .card-preview {
+            background: radial-gradient(circle at top, #ffffff, #e5e7eb);
+            border-color: rgba(148, 163, 184, 0.6);
+        }
+
+        .nav-tabs {
+            border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+        }
+
+        .nav-tabs .nav-link {
+            color: #9ca3af;
+            border: none;
+            border-radius: 999px;
+            padding: 0.55rem 0.95rem;
+            font-size: 0.8rem;
+            transition: var(--transition);
+            background: transparent;
+        }
+
+        .nav-tabs .nav-link:hover {
+            color: #e5e7eb;
+            background: rgba(15,23,42,0.9);
+        }
+
+        .nav-tabs .nav-link.active {
+            background: linear-gradient(135deg, #4f46e5, #22c55e);
+            color: white;
+            box-shadow: 0 12px 30px rgba(34, 197, 94, 0.4);
+        }
+
+        .light-mode .nav-tabs .nav-link {
+            color: #6b7280;
+        }
+
+        .light-mode .nav-tabs .nav-link:hover {
+            background: rgba(229,231,235,0.9);
+            color: #111827;
+        }
+
+        .tab-content {
+            padding: 1rem 0 0.25rem;
+        }
+
+        .preset-bins {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+            gap: 0.45rem;
+            margin-top: 0.65rem;
+        }
+
+        .preset-bin {
+            padding: 0.42rem 0.7rem;
+            background: rgba(15,23,42,0.9);
+            border-radius: 999px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-weight: 500;
+            transition: var(--transition);
+            border: 1px solid rgba(148, 163, 184, 0.5);
+            color: #cbd5f5;
+        }
+
+        .preset-bin:hover {
+            background: radial-gradient(circle at 0 0, #4f46e5, #0f172a);
+            border-color: #818cf8;
+            transform: translateY(-1px);
+        }
+
+        .light-mode .preset-bin {
+            background: #f9fafb;
+            border-color: rgba(148, 163, 184, 0.7);
+            color: #0f172a;
+        }
+
+        .history-item {
+            padding: 0.7rem 0.9rem;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+            font-size: 0.8rem;
             cursor: pointer;
             transition: var(--transition);
-            z-index: 10;
         }
 
-        .dark-mode .copy-btn {
-            background: rgba(255,255,255,0.15);
-            border-color: rgba(255,255,255,0.3);
+        .history-item:hover {
+            background: rgba(15,23,42,0.85);
         }
 
-        /* Card Preview */
-        .card-preview {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .light-mode .history-item:hover {
+            background: #f3f4f6;
+        }
+
+        .validation-badge {
+            display: inline-block;
+            padding: 2px 9px;
+            border-radius: 999px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            margin-left: 0.5rem;
+        }
+
+        .badge-valid {
+            background: var(--success-color);
             color: white;
-            padding: 1.5rem;
-            border-radius: var(--radius);
-            position: relative;
+        }
+
+        .badge-invalid {
+            background: var(--danger-color);
+            color: white;
+        }
+
+        .card-type-icon {
+            margin-right: 0.4rem;
+        }
+
+        .trust-signals {
+            margin: 2rem 0 1.6rem;
+            padding: 1.8rem 1.6rem;
+            background: var(--glass-bg);
+            border-radius: 24px;
+            border: var(--glass-border);
+            box-shadow: var(--box-shadow-soft);
+        }
+
+        .light-mode .trust-signals {
+            background: rgba(255,255,255,0.95);
+        }
+
+        .trust-signals h5 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .trust-signals .small {
+            color: #6b7280;
+        }
+
+        .seo-content {
+            background: var(--glass-bg);
+            padding: 1.8rem 1.6rem 2rem;
+            border-radius: 24px;
+            box-shadow: var(--box-shadow-soft);
+            margin-top: 1.8rem;
+            border: var(--glass-border);
+            font-size: 0.87rem;
+        }
+
+        .light-mode .seo-content {
+            background: #ffffff;
+        }
+
+        .seo-content h2 {
+            font-size: 1.3rem;
+        }
+
+        .seo-content h3 {
+            font-size: 1rem;
+        }
+
+        .seo-content ul {
+            padding-left: 1.1rem;
+        }
+
+        .seo-content li {
+            margin-bottom: 0.25rem;
+        }
+
+        .result-section .list-unstyled li {
+            padding: 0.35rem 0;
+            font-size: 0.8rem;
+        }
+
+        .accordion {
+            border-radius: 18px;
             overflow: hidden;
-            min-height: 200px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
             margin-top: 1.5rem;
+            background: transparent;
         }
 
-        .card-chip {
-            width: 40px;
-            height: 32px;
-            background: linear-gradient(145deg, #ffce47, #ffc247);
-            border-radius: 4px;
-            margin-bottom: 1rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        .accordion-item {
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            background: rgba(15,23,42,0.9);
         }
 
-        .card-number-preview {
-            font-family: 'Roboto Mono', monospace;
-            font-size: 1.25rem;
-            letter-spacing: 2px;
-            margin-bottom: 0.5rem;
+        .accordion-item + .accordion-item {
+            border-top: none;
         }
 
-        /* Trust Signals */
-        .trust-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin: 4rem 0;
+        .light-mode .accordion-item {
+            background: #ffffff;
         }
 
-        .trust-item {
-            text-align: center;
-            padding: 2rem;
+        .accordion-button {
+            font-weight: 500;
+            font-size: 0.86rem;
+            padding: 0.9rem 1.1rem;
+            background: transparent;
+            color: inherit;
         }
 
-        .trust-icon {
-            width: 64px;
-            height: 64px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 1.5rem;
+        .accordion-button:not(.collapsed) {
+            background: linear-gradient(135deg, #4f46e5, #22c55e);
             color: white;
-            box-shadow: var(--shadow-lg);
         }
 
-        /* Responsive */
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: #4f46e5;
+        }
+
+        .accordion-body {
+            font-size: 0.85rem;
+            line-height: 1.7;
+        }
+
+        .mobile-tab-label {
+            display: none;
+        }
+
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 100%;
+                padding: 0 1.3rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .header-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .header-right {
+                text-align: left;
+            }
+            .form-section,
+            .result-section {
+                padding: 1.3rem;
+            }
+        }
+
         @media (max-width: 768px) {
-            body { padding-top: 70px; }
-            .theme-toggle { top: 16px; right: 16px; width: 44px; height: 44px; }
-            .container { padding: 0 16px; }
-            .card { padding: 1.5rem; }
-            .generator-grid { gap: 1rem; }
+            .container {
+                margin-top: 2.2rem;
+            }
+            .brand-text h1 {
+                font-size: 1.4rem;
+            }
+            .brand-tag {
+                font-size: 0.72rem;
+            }
+            .logo-circle {
+                width: 52px;
+                height: 52px;
+            }
+            textarea {
+                height: 260px;
+            }
+            .generator-container {
+                gap: 1.1rem;
+            }
+            .nav-tabs .nav-item {
+                flex: 1;
+                text-align: center;
+            }
+            .nav-tabs .nav-link {
+                font-size: 0.78rem;
+                padding: 0.5rem 0.4rem;
+            }
+            .desktop-tab-label {
+                display: none;
+            }
+            .mobile-tab-label {
+                display: inline;
+                font-size: 0.7rem;
+            }
+            .theme-toggle {
+                width: 42px;
+                height: 42px;
+                font-size: 1.05rem;
+            }
+            .action-buttons {
+                flex-direction: column;
+            }
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 0.8rem;
+                margin-top: 1.8rem;
+            }
+            .header-inner {
+                padding: 1.1rem 1.1rem 1.2rem;
+                border-radius: 22px;
+            }
+            .form-section,
+            .result-section {
+                border-radius: 14px;
+            }
+            .preset-bins {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .form-label {
+                font-size: 0.78rem;
+            }
+            .form-control,
+            .form-select {
+                font-size: 0.82rem;
+            }
         }
-
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-
-        .card:nth-child(1) { animation-delay: 0.1s; }
-        .card:nth-child(2) { animation-delay: 0.2s; }
     </style>
 </head>
-<body>
-    <!-- Theme Toggle -->
-    <div class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark Mode">
-        <i id="theme-icon" class="fas fa-moon"></i>
+<body class="dark-mode">
+    <div class="theme-toggle" onclick="toggleTheme()">
+        <i id="theme-icon" class="fas fa-sun"></i>
     </div>
 
     <div class="container">
-        <!-- Header -->
-        <div class="header fade-in-up">
-            <h1>SAMBAT <span style="background: linear-gradient(135deg, var(--success), #059669);-webkit-background-clip: text;background-clip: text;-webkit-text-fill-color: transparent;">Pro</span></h1>
-            <p class="lead">Professional test card generator for developers, QA teams & payment systems. Luhn-validated, production-ready.</p>
+        <div class="header">
+            <div class="header-inner">
+                <div class="brand-block">
+                    <div class="logo-circle">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <div class="brand-text">
+                        <h1><span>RENAMSO</span></h1>
+                        <div class="brand-tag">ADVANCED CARD GENERATOR</div>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="pill">
+                        <i class="fas fa-code"></i>
+                        <span>Developer Mode • Live</span>
+                    </div>
+                    <div class="header-metric">
+                        100% client-side • Luhn valid
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- Generator -->
-        <div class="generator-grid">
-            <!-- Input Form -->
-            <div class="card fade-in-up">
-                <div class="card-header">
-                    <i class="fas fa-cogs"></i>
-                    <h3>Generator Settings</h3>
+        <div class="generator-container">
+            <div class="form-section">
+                <div class="section-label">
+                    <i class="fas fa-sliders-h"></i>
+                    <span>Generator Setup</span>
                 </div>
-
-                <form id="generatorForm">
+                <h3><i class="fas fa-cog me-2"></i>Configuration</h3>
+                <form id="generator-form">
                     <div class="mb-3">
-                        <label class="form-label">
-                            <i class="fas fa-hashtag"></i> BIN Pattern
-                        </label>
-                        <div class="position-relative">
-                            <input type="text" class="form-control" id="bin" placeholder="411111xxxxxx1111" maxlength="19">
-                            <button type="button" class="btn btn-sm position-absolute end-0 top-50 translate-middle-y me-2" style="width: 36px; height: 36px;" onclick="validateBIN()">
+                        <label for="bin" class="form-label"><b>BIN Pattern</b></label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="bin" placeholder="37513874xx0591x" required>
+                            <button class="btn btn-outline-secondary" type="button" onclick="validateBIN()">
                                 <i class="fas fa-check"></i>
                             </button>
                         </div>
-                        <small class="form-text text-muted">Use 'x' for random digits. Min 6 digits recommended.</small>
+                        <div class="form-text">Use 'x' for random digits. Example: 411111xxxxxx1111</div>
                     </div>
-
-                    <!-- Presets -->
+                    
                     <div class="mb-3">
-                        <label class="form-label"><i class="fas fa-th"></i> Quick Presets</label>
-                        <div class="preset-grid">
-                            <div class="preset-btn" onclick="setPreset('visa')">Visa</div>
-                            <div class="preset-btn" onclick="setPreset('mastercard')">MasterCard</div>
-                            <div class="preset-btn" onclick="setPreset('amex')">Amex</div>
-                            <div class="preset-btn" onclick="setPreset('discover')">Discover</div>
-                            <div class="preset-btn" onclick="setPreset('diners')">Diners</div>
+                        <label class="form-label"><b>Quick BIN Presets</b></label>
+                        <div class="preset-bins">
+                            <div class="preset-bin" onclick="setBIN('4xxxxxxxxxxxxx')">Visa</div>
+                            <div class="preset-bin" onclick="setBIN('5xxxxxxxxxxxxxx')">MasterCard</div>
+                            <div class="preset-bin" onclick="setBIN('34xxxxxxxxxxxxx')">Amex 34</div>
+                            <div class="preset-bin" onclick="setBIN('37xxxxxxxxxxxxx')">Amex 37</div>
+                            <div class="preset-bin" onclick="setBIN('6011xxxxxxxxxx')">Discover</div>
+                            <div class="preset-bin" onclick="setBIN('3xxxxxxxxxxxxx')">Diners</div>
                         </div>
                     </div>
-
-                    <div class="row g-3 mb-3">
-                        <div class="col-md-6">
-                            <label class="form-label"><i class="fas fa-calendar"></i> Expiry Month</label>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="month" class="form-label"><b>Expiration Month</b></label>
                             <select class="form-select" id="month">
-                                <option value="random">Random</option>
-                                <option value="01">01</option><option value="02">02</option><option value="03">03</option>
-                                <option value="04">04</option><option value="05">05</option><option value="06">06</option>
-                                <option value="07">07</option><option value="08">08</option><option value="09">09</option>
-                                <option value="10">10</option><option value="11">11</option><option value="12">12</option>
+                                <option value="Random">Random</option>
+                                <option value="01">01 - January</option>
+                                <option value="02">02 - February</option>
+                                <option value="03">03 - March</option>
+                                <option value="04">04 - April</option>
+                                <option value="05">05 - May</option>
+                                <option value="06">06 - June</option>
+                                <option value="07">07 - July</option>
+                                <option value="08">08 - August</option>
+                                <option value="09">09 - September</option>
+                                <option value="10">10 - October</option>
+                                <option value="11">11 - November</option>
+                                <option value="12">12 - December</option>
                             </select>
                         </div>
-                        <div class="col-md-6">
-                            <label class="form-label"><i class="fas fa-calendar-alt"></i> Expiry Year</label>
+                        <div class="col-md-6 mb-3">
+                            <label for="year" class="form-label"><b>Expiration Year</b></label>
                             <select class="form-select" id="year">
-                                <option value="random">Random (Future)</option>
+                                <option value="Random">Random</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                                <option value="2026">2026</option>
+                                <option value="2027">2027</option>
+                                <option value="2028">2028</option>
+                                <option value="2029">2029</option>
+                                <option value="2030">2030</option>
+                                <option value="2031">2031</option>
+                                <option value="2032">2032</option>
+                                <option value="2033">2033</option>
+                                <option value="2034">2034</option>
+                                <option value="2035">2035</option>
+                                <option value="2036">2036</option>
+                                <option value="2037">2037</option>
+                                <option value="2038">2038</option>
+                                <option value="2039">2039</option>
+                                <option value="2040">2040</option>
                             </select>
                         </div>
                     </div>
-
-                    <div class="row g-3 mb-3">
-                        <div class="col-md-6">
-                            <label class="form-label"><i class="fas fa-lock"></i> CVV</label>
-                            <input type="text" class="form-control" id="cvv" placeholder="Random">
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="ccv" class="form-label"><b>CVV/CVC</b></label>
+                            <input type="text" class="form-control" id="ccv" placeholder="Random">
                         </div>
-                        <div class="col-md-6">
-                            <label class="form-label"><i class="fas fa-list"></i> Quantity</label>
-                            <input type="number" class="form-control" id="quantity" min="1" max="500" value="25">
+                        <div class="col-md-6 mb-3">
+                            <label for="count" class="form-label"><b>Quantity</b></label>
+                            <input type="number" class="form-control" id="count" min="1" max="1000" value="20">
                         </div>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label"><i class="fas fa-file-export"></i> Format</label>
+                        <label for="format" class="form-label"><b>Output Format</b></label>
                         <select class="form-select" id="format">
-                            <option value="pipe">Card | Month | Year | CVV</option>
-                            <option value="csv">Card,Month,Year,CVV</option>
-                            <option value="json">JSON Array</option>
-                            <option value="card">Card Numbers Only</option>
+                            <option value="pipe">Card|Month|Year|CVV</option>
+                            <option value="comma">Card,Month,Year,CVV</option>
+                            <option value="json">JSON Format</option>
+                            <option value="cardonly">Card Numbers Only</option>
+                            <option value="formatted">Formatted Card (XXXX XXXX XXXX XXXX)</option>
                         </select>
                     </div>
-
-                    <button type="button" class="btn btn-primary w-100 mb-3" onclick="generateCards()">
-                        <i class="fas fa-bolt me-2"></i> Generate Test Cards
+                    
+                    <button type="button" class="btn btn-primary w-100 mb-3" onclick="generate()">
+                        <i class="fas fa-bolt me-2"></i><b>Generate Cards</b>
                     </button>
                 </form>
-
-                <!-- Live Preview -->
-                <div class="card-preview" id="previewCard">
-                    <div class="card-chip"></div>
-                    <div class="card-number-preview" id="previewNumber">Enter BIN to preview</div>
-                    <div id="previewType"></div>
+                
+                <div class="card-preview mt-4">
+                    <h6><i class="fas fa-eye me-2"></i>Live Preview</h6>
+                    <div id="preview">Enter a BIN pattern to see a preview</div>
+                    <div id="card-type" class="mt-2 small"></div>
                 </div>
             </div>
-
-            <!-- Results -->
-            <div class="card fade-in-up">
-                <div class="card-header">
-                    <i class="fas fa-list"></i>
-                    <h3>Generated Cards</h3>
+            
+            <div class="result-section">
+                <div class="section-label">
+                    <i class="fas fa-terminal"></i>
+                    <span>Output Panel</span>
                 </div>
-
-                <div class="position-relative mb-3">
-                    <i class="fas fa-copy copy-btn" onclick="copyOutput()" title="Copy to Clipboard"></i>
-                    <textarea class="form-control" id="output" readonly placeholder="Generated cards will appear here..."></textarea>
+                <ul class="nav nav-tabs" id="resultTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="output-tab" data-bs-toggle="tab" data-bs-target="#output-pane" type="button" role="tab">
+                            <i class="fas fa-list me-1"></i>
+                            <span class="desktop-tab-label">Generated Cards</span>
+                            <span class="mobile-tab-label">Cards</span>
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="history-tab" data-bs-toggle="tab" data-bs-target="#history-pane" type="button" role="tab">
+                            <i class="fas fa-history me-1"></i>
+                            <span class="desktop-tab-label">History</span>
+                            <span class="mobile-tab-label">History</span>
+                        </button>
+                    </li>
+                </ul>
+                
+                <div class="tab-content" id="resultTabsContent">
+                    <div class="tab-pane fade show active" id="output-pane" role="tabpanel">
+                        <div class="output-container mt-3">
+                            <i class="fas fa-copy copy-btn" onclick="copyToClipboard()" title="Copy to clipboard"></i>
+                            <textarea class="form-control" id="output" rows="15" readonly placeholder="Generated cards will appear here..."></textarea>
+                        </div>
+                        
+                        <div class="action-buttons">
+                            <button type="button" class="btn btn-success" onclick="downloadAsFile()">
+                                <i class="fas fa-download me-2"></i>Download
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary" onclick="clearOutput()">
+                                <i class="fas fa-trash me-2"></i>Clear
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane fade" id="history-pane" role="tabpanel">
+                        <div class="mt-3">
+                            <h6><i class="fas fa-clock me-1"></i>Recent Generations</h6>
+                            <div id="history-list" style="max-height: 400px; overflow-y: auto;">
+                                <!-- History items will be added here -->
+                            </div>
+                            <button class="btn btn-sm btn-outline-secondary w-100 mt-2" onclick="clearHistory()">
+                                Clear History
+                            </button>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="d-flex gap-2">
-                    <button class="btn btn-success flex-fill" onclick="downloadOutput()">
-                        <i class="fas fa-download me-2"></i> Download
-                    </button>
-                    <button class="btn btn-outline-secondary" onclick="clearOutput()">
-                        <i class="fas fa-trash me-2"></i> Clear
-                    </button>
-                </div>
-
-                <div class="mt-4 pt-3 border-top" style="border-color: rgba(0,0,0,0.05);">
-                    <small class="text-muted">
-                        <i class="fas fa-check-circle text-success me-1"></i> All cards pass Luhn validation<br>
-                        <i class="fas fa-shield-alt text-primary me-1"></i> Testing & development only<br>
-                        <i class="fas fa-ban text-danger me-1"></i> Never use for real transactions
-                    </small>
+                
+                <div class="mt-4">
+                    <h6><i class="fas fa-info-circle me-2"></i>Information</h6>
+                    <ul class="list-unstyled small">
+                        <li><i class="fas fa-check-circle text-success me-2"></i>All cards pass Luhn algorithm validation</li>
+                        <li><i class="fas fa-shield-alt text-primary me-2"></i>For testing and development purposes only</li>
+                        <li><i class="fas fa-exclamation-triangle text-warning me-2"></i>Do not use for fraudulent activities</li>
+                    </ul>
                 </div>
             </div>
         </div>
 
-        <!-- Trust Signals -->
-        <div class="trust-grid">
-            <div class="trust-item fade-in-up">
-                <div class="trust-icon">
-                    <i class="fas fa-shield-alt"></i>
+        <!-- Trust Signals Section -->
+        <div class="trust-signals">
+            <div class="row text-center">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <i class="fas fa-shield-alt fa-2x text-primary mb-2"></i>
+                    <h5>100% Secure</h5>
+                    <p class="small">No data stored • Client-side processing only</p>
                 </div>
-                <h4>100% Secure</h4>
-                <p class="text-muted">Client-side only. No data stored. Zero server calls.</p>
-            </div>
-            <div class="trust-item fade-in-up">
-                <div class="trust-icon">
-                    <i class="fas fa-bolt"></i>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <i class="fas fa-bolt fa-2x text-primary mb-2"></i>
+                    <h5>Instant Generation</h5>
+                    <p class="small">Generate thousands of cards in seconds</p>
                 </div>
-                <h4>Instant</h4>
-                <p class="text-muted">Generate 500+ cards in seconds. No delays.</p>
-            </div>
-            <div class="trust-item fade-in-up">
-                <div class="trust-icon">
-                    <i class="fas fa-code"></i>
+                <div class="col-md-4">
+                    <i class="fas fa-code fa-2x text-primary mb-2"></i>
+                    <h5>Developer Focused</h5>
+                    <p class="small">Built for testing and development</p>
                 </div>
-                <h4>Developer Ready</h4>
-                <p class="text-muted">JSON, CSV, pipe formats. Copy-paste ready.</p>
-            </div>
-            <div class="trust-item fade-in-up">
-                <div class="trust-icon">
-                    <i class="fas fa-check-double"></i>
-                </div>
-                <h4>Luhn Valid</h4>
-                <p class="text-muted">All cards pass industry validation checks.</p>
             </div>
         </div>
+
+        <!-- SEO Content Section (isi asli dipertahankan) -->
+        <section class="seo-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 mx-auto">
+                        <h2>Free Credit Card Generator for Testing & Development</h2>
+                        <p>Our advanced <strong>credit card generator tool</strong> provides developers, testers, and quality assurance teams with valid test card numbers that pass Luhn algorithm validation. Generate unlimited <strong>test credit card numbers</strong> with custom BIN patterns for payment gateway testing, e-commerce development, and financial application testing.</p>
+                        
+                        <h3>Why Use Our Credit Card Generator?</h3>
+                        <ul>
+                            <li><strong>Luhn Algorithm Validated</strong> - All generated cards pass mathematical validation checks</li>
+                            <li><strong>Multiple Card Types</strong> - Support for Visa, MasterCard, American Express, Discover, and Diners Club</li>
+                            <li><strong>Custom BIN Patterns</strong> - Create cards with specific Bank Identification Numbers</li>
+                            <li><strong>Safe for Testing</strong> - Generated numbers work for testing but cannot be used for real transactions</li>
+                            <li><strong>Developer Friendly</strong> - Multiple output formats including JSON, CSV, and pipe-delimited</li>
+                        </ul>
+
+                        <h3>How to Generate Test Credit Card Numbers</h3>
+                        <ol>
+                            <li>Enter your desired BIN pattern (use 'x' for random digits)</li>
+                            <li>Select expiration date preferences or use random future dates</li>
+                            <li>Choose CVV generation method</li>
+                            <li>Specify quantity and output format</li>
+                            <li>Click generate and copy/download your test cards</li>
+                        </ol>
+
+                        <h3>Common Use Cases</h3>
+                        <p>Our <strong>credit card number generator</strong> is essential for:</p>
+                        <ul>
+                            <li>Payment gateway integration testing</li>
+                            <li>E-commerce website development</li>
+                            <li>Mobile payment app testing</li>
+                            <li>Financial software quality assurance</li>
+                            <li>Educational purposes and coding tutorials</li>
+                        </ul>
+
+                        <h3>Understanding BIN Patterns</h3>
+                        <p>A <strong>BIN (Bank Identification Number)</strong> is the first 6-8 digits of a credit card that identify the issuing bank and card type. Our tool allows you to create custom BIN patterns to generate cards that match specific testing requirements.</p>
+
+                        <div class="alert alert-info">
+                            <strong>Important:</strong> All generated credit card numbers are for testing purposes only and cannot be used for actual financial transactions. This tool should only be used in development and testing environments.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Information Accordion -->
+        <div class="accordion" id="infoAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <i class="fas fa-info-circle me-2"></i> About This Tool
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#infoAccordion">
+                    <div class="accordion-body">
+                        <p>This Credit Card Generator is a sophisticated utility tool designed for developers, testers, and educators who need valid credit card numbers for testing payment systems, e-commerce platforms, and financial applications.</p>
+                        <p>The tool generates credit card numbers that pass the Luhn algorithm validation, making them suitable for testing scenarios where valid card numbers are required. All generated cards are completely fictional and cannot be used for actual transactions.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <i class="fas fa-cog me-2"></i> How It Works
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#infoAccordion">
+                    <div class="accordion-body">
+                        <p>The generator uses the following process to create valid credit card numbers:</p>
+                        <ol>
+                            <li><strong>BIN Input</strong>: You provide a Bank Identification Number (BIN) pattern. Use 'x' characters for random digits.</li>
+                            <li><strong>Card Generation</strong>: The tool generates card numbers based on your BIN pattern while ensuring they pass the Luhn algorithm check.</li>
+                            <li><strong>Expiration Dates</strong>: You can specify fixed expiration dates or use random future dates.</li>
+                            <li><strong>CVV Codes</strong>: The tool generates appropriate CVV codes based on card type (3 digits for most cards, 4 digits for Amex).</li>
+                            <li><strong>Validation</strong>: All generated cards are automatically validated using the Luhn algorithm to ensure they're mathematically correct.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <i class="fas fa-shield-alt me-2"></i> Security & Legal Information
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#infoAccordion">
+                    <div class="accordion-body">
+                        <div class="alert alert-warning">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            <strong>Important Legal Notice</strong>
+                        </div>
+                        <p>This tool is intended for legitimate testing and educational purposes only. Please be aware of the following:</p>
+                        <ul>
+                            <li>All generated credit card numbers are fictional and cannot be used for actual financial transactions</li>
+                            <li>Using generated card numbers for fraudulent activities is illegal and strictly prohibited</li>
+                            <li>This tool should only be used in controlled testing environments</li>
+                            <li>Always comply with local laws and regulations regarding financial data</li>
+                            <li>Ensure you have proper authorization before testing payment systems</li>
+                        </ul>
+                        <p>By using this tool, you agree to use it responsibly and only for legitimate purposes.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        <i class="fas fa-question-circle me-2"></i> Frequently Asked Questions
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#infoAccordion">
+                    <div class="accordion-body">
+                        <h6>What is a BIN pattern?</h6>
+                        <p>A BIN (Bank Identification Number) pattern is the first 6-8 digits of a credit card that identify the issuing bank and card type. In this tool, you can use 'x' characters to represent random digits in your pattern.</p>
+                        
+                        <h6>Why do the generated cards pass validation?</h6>
+                        <p>All cards generated by this tool pass the Luhn algorithm check, which is the standard validation method used by payment processors to verify card number integrity.</p>
+                        
+                        <h6>Can I use these cards for online purchases?</h6>
+                        <p>No. These are randomly generated numbers that only pass mathematical validation. They are not associated with any real accounts and cannot be used for actual transactions.</p>
+                        
+                        <h6>What card types are supported?</h6>
+                        <p>The tool supports Visa, MasterCard, American Express, Discover, and Diners Club cards with appropriate BIN ranges and card lengths.</p>
+                        
+                        <h6>Is my data stored when using this tool?</h6>
+                        <p>The tool only stores your generation history locally in your browser for convenience. No data is sent to any server.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        <i class="fas fa-tools me-2"></i> Developer Resources
+                    </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#infoAccordion">
+                    <div class="accordion-body">
+                        <h5>API Integration Guide</h5>
+                        <p>Learn how to integrate our credit card generation functionality into your applications.</p>
+                        
+                        <h5>Testing Best Practices</h5>
+                        <p>Discover the best practices for payment gateway testing using generated card numbers.</p>
+                        
+                        <h5>Card Number Validation</h5>
+                        <p>Understand how the Luhn algorithm works and how to validate credit card numbers in your code.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+    if ('IntersectionObserver' in window) {
+        const lazyObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const lazy = entry.target;
+                }
+            });
+        });
+    }
+    </script>
 
     <script>
-        // Professional Credit Card Generator [file:1][web:16][web:20]
-        const CARD_TYPES = {
-            visa: { pattern: '^4', length: 16, name: 'Visa' },
-            mastercard: { pattern: '^5[1-5]', length: 16, name: 'MasterCard' },
-            amex: { pattern: '^3[47]', length: 15, name: 'American Express' },
-            discover: { pattern: '^6(?:011|5)', length: 16, name: 'Discover' },
-            diners: { pattern: '^3(?:0[0-5]|[68])', length: 14, name: 'Diners Club' }
-        };
-
-        const PRESETS = {
-            visa: '4xxxxxxxxxxxxx',
-            mastercard: '5xxxxxxxxxxxxxx',
-            amex: '37xxxxxxxxxxxxx',
-            discover: '6011xxxxxxxxxxxx',
-            diners: '3xxxxxxxxxxxxx'
-        };
-
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            initYears();
-            updatePreview();
-            document.getElementById('bin').addEventListener('input', updatePreview);
-        });
-
-        function initYears() {
-            const yearSelect = document.getElementById('year');
-            const currentYear = new Date().getFullYear();
-            for (let i = 0; i < 16; i++) {
-                const year = currentYear + i;
-                const option = document.createElement('option');
-                option.value = year.toString().slice(-2);
-                option.textContent = year;
-                yearSelect.appendChild(option);
+        // Theme toggle functionality (logika asli dipertahankan, hanya default di body diganti dark-mode)
+        function toggleTheme() {
+            const body = document.body;
+            body.classList.toggle('dark-mode');
+            body.classList.toggle('light-mode');
+            const icon = document.getElementById('theme-icon');
+            
+            if (body.classList.contains('dark-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
             }
         }
 
-        function setPreset(type) {
-            const binInput = document.getElementById('bin');
-            binInput.value = PRESETS[type];
-            binInput.classList.add('is-valid');
+        // Load theme preference on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            document.body.classList.remove('light-mode', 'dark-mode');
+            document.body.classList.add(theme + '-mode');
+            const icon = document.getElementById('theme-icon');
+            
+            if (theme === 'dark') {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+            
+            document.getElementById('bin').addEventListener('input', updatePreview);
+            loadHistory();
+        });
+
+        function updatePreview() {
+            const bin = document.getElementById('bin').value.trim();
+            const preview = document.getElementById('preview');
+            const cardType = document.getElementById('card-type');
+            
+            if (bin === '') {
+                preview.textContent = 'Enter a BIN pattern to see a preview';
+                cardType.innerHTML = '';
+                return;
+            }
+            
+            try {
+                const card = generateCard(bin, getCardLength(bin));
+                preview.textContent = card;
+                const type = detectCardType(card);
+                let icon = '';
+                switch(type) {
+                    case 'Visa': icon = '<i class="fab fa-cc-visa card-type-icon"></i>'; break;
+                    case 'MasterCard': icon = '<i class="fab fa-cc-mastercard card-type-icon"></i>'; break;
+                    case 'Amex': icon = '<i class="fab fa-cc-amex card-type-icon"></i>'; break;
+                    case 'Discover': icon = '<i class="fab fa-cc-discover card-type-icon"></i>'; break;
+                    default: icon = '<i class="fas fa-credit-card card-type-icon"></i>';
+                }
+                cardType.innerHTML = `${icon} ${type} • ${validateLuhn(card) ? '<span class="badge-valid validation-badge">Valid</span>' : '<span class="badge-invalid validation-badge">Invalid</span>'}`;
+                const cp = document.querySelector('.card-preview');
+                cp.classList.remove('updated');
+                void cp.offsetWidth;
+                cp.classList.add('updated');
+            } catch (e) {
+                preview.textContent = 'Invalid BIN pattern';
+                cardType.innerHTML = '';
+            }
+        }
+
+        function setBIN(bin) {
+            document.getElementById('bin').value = bin;
             updatePreview();
-            document.querySelectorAll('.preset-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
         }
 
         function validateBIN() {
-            const bin = document.getElementById('bin').value;
-            if (bin && /^[0-9x]+$/.test(bin.replace(/x/g, ''))) {
-                document.getElementById('bin').classList.add('is-valid');
+            const bin = document.getElementById('bin').value.trim();
+            if (bin === '') {
+                alert('Please enter a BIN pattern');
+                return;
             }
-        }
-
-        function updatePreview() {
-            const bin = document.getElementById('bin').value;
-            const previewNumber = document.getElementById('previewNumber');
-            const previewType = document.getElementById('previewType');
-            
-            if (bin.length >= 6) {
-                const sample = generateSampleCard(bin);
-                previewNumber.textContent = formatCardNumber(sample.card);
-                previewType.innerHTML = getCardType(sample.card) + ' <span class="badge bg-success ms-2">Valid</span>';
+            if (!/\d/.test(bin)) {
+                alert('BIN pattern must contain at least one digit');
+                return;
             }
+            alert('BIN pattern is valid');
         }
 
-        function generateSampleCard(binPattern) {
-            const fixed = binPattern.replace(/x/g, '0');
-            const xCount = binPattern.match(/x/g)?.length || 6;
-            const randomPart = Array.from({length: xCount}, () => Math.floor(Math.random() * 10)).join('');
-            let card = fixed + randomPart;
-            
-            // Adjust length and apply Luhn
-            const type = detectCardType(card);
-            const targetLength = CARD_TYPES[type]?.length || 16;
-            while (card.length < targetLength) card += Math.floor(Math.random() * 10);
-            card = card.slice(0, targetLength);
-            
-            return { card: luhnValidate(card) };
+        function secureRandomInt(max) {
+            if (window.crypto && window.crypto.getRandomValues) {
+                const array = new Uint32Array(1);
+                window.crypto.getRandomValues(array);
+                return Math.floor((array[0] / 0x100000000) * max);
+            }
+            return Math.floor(Math.random() * max);
         }
 
-        // Luhn Algorithm [file:1]
-        function luhnValidate(cardNumber) {
+        function randomDigit() {
+            return secureRandomInt(10);
+        }
+
+        function parseBinPattern(bin, maxLength) {
+            const digits = [];
+            for (const char of bin) {
+                if (digits.length >= maxLength) break;
+                const lowerChar = char.toLowerCase();
+                if (lowerChar === 'x') {
+                    digits.push(randomDigit());
+                } else if (/\d/.test(lowerChar)) {
+                    digits.push(parseInt(lowerChar, 10));
+                }
+            }
+            return digits;
+        }
+
+        const BANK_IIN_PATTERNS = {
+            visa: ['4', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49'],
+            mastercard: ['51', '52', '53', '54', '55', '2221', '2222', '2223', '2500', '2720'],
+            amex: ['34', '37'],
+            discover: ['6011', '644', '645', '646', '647', '648', '649', '65'],
+            diners: ['300', '301', '302', '303', '304', '305', '36', '38', '39']
+        };
+
+        function getCardTypeFromBin(bin) {
+            const cleaned = bin.replace(/[^\dx]/gi, '');
+            if (/^4/i.test(cleaned)) return 'visa';
+            if (/^5[1-5]/i.test(cleaned) || /^2[2-7]/i.test(cleaned)) return 'mastercard';
+            if (/^3[47]/i.test(cleaned)) return 'amex';
+            if (/^6/i.test(cleaned)) return 'discover';
+            if (/^3[0689]/i.test(cleaned)) return 'diners';
+            return 'unknown';
+        }
+
+        function generateAccountDigits(count, cardType) {
+            const digits = [];
+            for (let i = 0; i < count; i++) {
+                digits.push(randomDigit());
+            }
+            return digits;
+        }
+
+        function calculateLuhnChecksum(digits) {
             let sum = 0;
-            let shouldDouble = false;
-            for (let i = cardNumber.length - 1; i >= 0; i--) {
-                let digit = parseInt(cardNumber.charAt(i));
-                if (shouldDouble) {
+            const length = digits.length;
+            for (let i = 0; i < length; i++) {
+                const position = length - 1 - i;
+                let digit = digits[position];
+                if (i % 2 === 0) {
                     digit *= 2;
                     if (digit > 9) digit -= 9;
                 }
                 sum += digit;
-                shouldDouble = !shouldDouble;
             }
-            const checkDigit = (10 - (sum % 10)) % 10;
-            return cardNumber.slice(0, -1) + checkDigit;
+            return (10 - (sum % 10)) % 10;
         }
 
-        function detectCardType(card) {
-            for (const [type, info] of Object.entries(CARD_TYPES)) {
-                if (new RegExp(info.pattern).test(card)) return type;
+        function verifyLuhnChecksum(digits) {
+            let sum = 0;
+            const length = digits.length;
+            for (let i = 0; i < length; i++) {
+                const position = length - 1 - i;
+                let digit = digits[position];
+                if (i % 2 === 1) {
+                    digit *= 2;
+                    if (digit > 9) digit -= 9;
+                }
+                sum += digit;
             }
-            return 'unknown';
+            return sum % 10 === 0;
         }
 
-        function getCardType(card) {
-            const type = detectCardType(card);
-            return CARD_TYPES[type]?.name || 'Unknown';
+        function generateCard(bin, length) {
+            const targetLength = length - 1;
+            const cardType = getCardTypeFromBin(bin);
+            let digits = parseBinPattern(bin, targetLength);
+            const remainingDigits = targetLength - digits.length;
+            if (remainingDigits > 0) {
+                const accountDigits = generateAccountDigits(remainingDigits, cardType);
+                digits = digits.concat(accountDigits);
+            }
+            const checksum = calculateLuhnChecksum(digits);
+            digits.push(checksum);
+            if (!verifyLuhnChecksum(digits)) {
+                digits.pop();
+                const newChecksum = calculateLuhnChecksum(digits);
+                digits.push(newChecksum);
+            }
+            return digits.join('');
         }
 
-        function formatCardNumber(card) {
-            return card.replace(/(\d{4})(?=\d)/g, '$1 ');
+        function generateCards(bin, length, count) {
+            const cards = new Set();
+            const maxAttempts = count * 2;
+            let attempts = 0;
+            while (cards.size < count && attempts < maxAttempts) {
+                const card = generateCard(bin, length);
+                cards.add(card);
+                attempts++;
+            }
+            return Array.from(cards).slice(0, count);
         }
 
-        function generateCards() {
-            const bin = document.getElementById('bin').value;
-            const month = document.getElementById('month').value;
-            const year = document.getElementById('year').value;
-            const cvv = document.getElementById('cvv').value;
-            const count = parseInt(document.getElementById('quantity').value);
+        function getCardLength(bin) {
+            if (/^3[47]/.test(bin)) return 15;
+            if (/^3[0689]/.test(bin)) return 14;
+            return 16;
+        }
+
+        function detectCardType(cardNumber) {
+            const cleaned = cardNumber.replace(/\D/g, '');
+            const patterns = [
+                { regex: /^4/, type: 'Visa' },
+                { regex: /^5[1-5]/, type: 'MasterCard' },
+                { regex: /^(222[1-9]|22[3-9]\d|2[3-6]\d{2}|27[01]\d|2720)/, type: 'MasterCard' },
+                { regex: /^3[47]/, type: 'Amex' },
+                { regex: /^6011|^622[1-9][2-6]\d|^64[4-9]|^65/, type: 'Discover' },
+                { regex: /^3(0[0-5]|[68]\d|9\d)/, type: 'Diners Club' }
+            ];
+            const match = patterns.find(p => p.regex.test(cleaned));
+            return match ? match.type : 'Unknown';
+        }
+
+        function validateLuhn(cardNumber) {
+            const cleaned = cardNumber.replace(/\D/g, '');
+            if (cleaned.length < 13) return false;
+            let sum = 0;
+            let isEven = false;
+            for (let i = cleaned.length - 1; i >= 0; i--) {
+                let digit = parseInt(cleaned[i], 10);
+                if (isEven) {
+                    digit *= 2;
+                    if (digit > 9) digit -= 9;
+                }
+                sum += digit;
+                isEven = !isEven;
+            }
+            return sum % 10 === 0;
+        }
+
+        const MONTHS = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
+
+        function getAvailableYears() {
+            const currentYear = new Date().getFullYear();
+            return Array.from({ length: 15 }, (_, i) => String(currentYear + i + 1));
+        }
+
+        function generateMonth() {
+            return MONTHS[secureRandomInt(MONTHS.length)];
+        }
+
+        function generateYear() {
+            const years = getAvailableYears();
+            return years[secureRandomInt(years.length)];
+        }
+
+        function generateCCV(bin) {
+            const length = /^3[47]/.test(bin) ? 4 : 3;
+            return Array.from({ length }, () => randomDigit()).join('');
+        }
+
+        const OUTPUT_FORMATS = {
+            pipe: (card, month, year, ccv) => `${card}|${month}|${year}|${ccv}`,
+            comma: (card, month, year, ccv) => `${card},${month},${year},${ccv}`,
+            json: (card, month, year, ccv) => `{"card": "${card}", "month": "${month}", "year": "${year}", "cvv": "${ccv}"}`,
+            cardonly: (card) => card,
+            formatted: (card, month, year, ccv) => {
+                const formattedCard = card.replace(/(.{4})/g, '$1 ').trim();
+                return `${formattedCard}|${month}|${year}|${ccv}`;
+            }
+        };
+
+        function formatOutput(card, month, year, ccv, format) {
+            const formatter = OUTPUT_FORMATS[format] || OUTPUT_FORMATS.pipe;
+            return formatter(card, month, year, ccv);
+        }
+
+        const MAX_HISTORY_ITEMS = 20;
+
+        function saveToHistory(bin, count) {
+            const history = JSON.parse(localStorage.getItem('generationHistory') || '[]');
+            history.unshift({
+                bin,
+                count,
+                timestamp: new Date().toLocaleString()
+            });
+            localStorage.setItem('generationHistory', JSON.stringify(history.slice(0, MAX_HISTORY_ITEMS)));
+            loadHistory();
+        }
+
+        function loadHistory() {
+            const history = JSON.parse(localStorage.getItem('generationHistory') || '[]');
+            const historyList = document.getElementById('history-list');
+            if (!historyList) return;
+            if (history.length === 0) {
+                historyList.innerHTML = '<div class="text-center p-3">No generation history</div>';
+                return;
+            }
+            historyList.innerHTML = history.map(item => `
+                <div class="history-item" data-bin="${item.bin}">
+                    <div><strong>${item.bin}</strong> × ${item.count}</div>
+                    <div class="small text-muted">${item.timestamp}</div>
+                </div>
+            `).join('');
+            historyList.querySelectorAll('.history-item').forEach(el => {
+                el.addEventListener('click', () => {
+                    document.getElementById('bin').value = el.dataset.bin;
+                    updatePreview();
+                });
+            });
+        }
+
+        function clearHistory() {
+            if (confirm('Are you sure you want to clear generation history?')) {
+                localStorage.removeItem('generationHistory');
+                loadHistory();
+            }
+        }
+
+        const MAX_CARDS = 1000;
+        const DEFAULT_CARD_COUNT = 20;
+
+        function generate() {
+            const binInput = document.getElementById('bin');
+            const countInput = document.getElementById('count');
+            const output = document.getElementById('output');
+            
+            const bin = binInput.value.trim();
+            const ccvInput = document.getElementById('ccv').value.trim();
+            const monthOption = document.getElementById('month').value;
+            const yearOption = document.getElementById('year').value;
             const format = document.getElementById('format').value;
-
-            if (!bin || !/^[0-9x]+$/.test(bin.replace(/x/g, ''))) {
-                alert('Please enter valid BIN pattern (use x for random digits)');
+            
+            if (!bin) {
+                alert('Please enter a BIN pattern');
+                return;
+            }
+            
+            if (!/\d/.test(bin)) {
+                alert('BIN pattern must contain at least one digit');
                 return;
             }
 
-            const cards = [];
+            let count = parseInt(countInput.value, 10);
+            if (isNaN(count) || count <= 0) {
+                count = DEFAULT_CARD_COUNT;
+            } else if (count > MAX_CARDS) {
+                count = MAX_CARDS;
+                countInput.value = MAX_CARDS;
+            }
+
+            const cardLength = getCardLength(bin);
+            const isRandomMonth = monthOption === 'Random';
+            const isRandomYear = yearOption === 'Random';
+            const isRandomCCV = !ccvInput;
+
+            const cardNumbers = generateCards(bin, cardLength, count);
+            const results = new Array(count);
             for (let i = 0; i < count; i++) {
-                const cardData = generateCardData(bin, month, year, cvv);
-                cards.push(cardData);
+                const month = isRandomMonth ? generateMonth() : monthOption;
+                const year = isRandomYear ? generateYear() : yearOption;
+                const ccv = isRandomCCV ? generateCCV(bin) : ccvInput;
+                results[i] = formatOutput(cardNumbers[i], month, year, ccv, format);
             }
 
-            displayOutput(cards, format);
+            output.value = format === 'json'
+                ? '[\n  ' + results.join(',\n  ') + '\n]'
+                : results.join('\n');
+
+            saveToHistory(bin, count);
+            document.getElementById('output-tab').click();
         }
 
-        function generateCardData(binPattern, monthPref, yearPref, cvvPref) {
-            // Generate card number
-            const fixedPart = binPattern.replace(/x/g, '0');
-            const xPositions = [];
-            for (let i = 0; i < binPattern.length; i++) {
-                if (binPattern[i] === 'x') xPositions.push(i);
-            }
-            
-            let attempts = 0;
-            let card;
-            do {
-                const randomDigits = Array.from({length: xPositions.length}, () => 
-                    Math.floor(Math.random() * 10)
-                );
-                let tempCard = binPattern.split('').map((char, i) => 
-                    xPositions.includes(i) ? randomDigits[xPositions.indexOf(i)] : char
-                ).join('');
-                
-                // Extend to proper length
-                const type = detectCardType(tempCard);
-                const targetLen = CARD_TYPES[type]?.length || 16;
-                while (tempCard.length < targetLen) {
-                    tempCard += Math.floor(Math.random() * 10);
+        async function copyToClipboard() {
+            const textarea = document.getElementById('output');
+            const text = textarea.value;
+            if (!text) return;
+            try {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(text);
+                    showCopyFeedback();
+                } else {
+                    textarea.select();
+                    textarea.setSelectionRange(0, 99999);
+                    alert('Text selected. Please press Ctrl+C (Cmd+C on Mac) to copy.');
                 }
-                card = luhnValidate(tempCard.slice(0, targetLen));
-                attempts++;
-            } while (!isValidCard(card) && attempts < 10);
-
-            return {
-                card: card,
-                month: generateMonth(monthPref),
-                year: generateYear(yearPref),
-                cvv: generateCVV(cvvPref)
-            };
-        }
-
-        function generateMonth(pref) {
-            if (pref === 'random') return String(Math.floor(Math.random() * 12) + 1).padStart(2, '0');
-            return pref;
-        }
-
-        function generateYear(pref) {
-            if (pref === 'random') {
-                const current = new Date().getFullYear() % 100;
-                return String(Math.floor(Math.random() * 16) + current).padStart(2, '0');
+            } catch (err) {
+                textarea.select();
+                textarea.setSelectionRange(0, 99999);
+                alert('Could not copy automatically. Text selected - please use Ctrl+C (Cmd+C on Mac).');
             }
-            return pref;
         }
 
-        function generateCVV(pref) {
-            if (!pref || pref === 'random') {
-                return String(Math.floor(Math.random() * 1000)).padStart(3, '0');
-            }
-            return pref.slice(0, 4).padStart(3, '0');
-        }
-
-        function isValidCard(card) {
-            return card.length >= 13 && card.length <= 19 && /^\d+$/.test(card);
-        }
-
-        function displayOutput(cards, format) {
-            const output = document.getElementById('output');
-            let result = '';
-
-            switch (format) {
-                case 'pipe':
-                    result = cards.map(c => 
-                        `${formatCardNumber(c.card)} | ${c.month} | ${c.year} | ${c.cvv}`
-                    ).join('\n');
-                    break;
-                case 'csv':
-                    result = cards.map(c => 
-                        `"${c.card}","${c.month}","${c.year}","${c.cvv}"`
-                    ).join('\n');
-                    break;
-                case 'json':
-                    result = JSON.stringify(cards, null, 2);
-                    break;
-                case 'card':
-                    result = cards.map(c => formatCardNumber(c.card)).join('\n');
-                    break;
-            }
-
-            output.value = result;
-            output.style.height = 'auto';
-            output.style.height = output.scrollHeight + 'px';
-        }
-
-        function copyOutput() {
-            const output = document.getElementById('output');
-            output.select();
-            document.execCommand('copy');
-            const btn = event.target;
-            const original = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-check"></i>';
-            btn.style.background = 'var(--success)';
+        function showCopyFeedback() {
+            const copyBtn = document.querySelector('.copy-btn');
+            copyBtn.classList.remove('fa-copy');
+            copyBtn.classList.add('fa-check', 'text-success');
             setTimeout(() => {
-                btn.innerHTML = original;
-                btn.style.background = '';
+                copyBtn.classList.remove('fa-check', 'text-success');
+                copyBtn.classList.add('fa-copy');
             }, 2000);
         }
 
-        function downloadOutput() {
-            const output = document.getElementById('output');
+        function downloadAsFile() {
+            const output = document.getElementById('output').value;
+            if (!output) {
+                alert('No data to download');
+                return;
+            }
             const format = document.getElementById('format').value;
-            const blob = new Blob([output.value], { type: 'text/plain' });
+            const isJson = format === 'json';
+            const extension = isJson ? '.json' : '.txt';
+            const mimeType = isJson ? 'application/json' : 'text/plain';
+            const date = new Date().toISOString().slice(0, 10);
+
+            const blob = new Blob([output], { type: mimeType });
             const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `test-cards-${new Date().toISOString().slice(0,10)}.txt`;
-            a.click();
+            
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `generated_cards_${date}${extension}`;
+            link.click();
+            
             URL.revokeObjectURL(url);
         }
 
         function clearOutput() {
             document.getElementById('output').value = '';
         }
-
-        function toggleTheme() {
-            document.body.classList.toggle('dark-mode');
-            const icon = document.getElementById('theme-icon');
-            icon.classList.toggle('fa-moon');
-            icon.classList.toggle('fa-sun');
-        }
     </script>
 </body>
 </html>
-
-
-
-
-
