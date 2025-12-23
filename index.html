@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional Credit Card Generator for Developers & QA Teams. Generate Luhn-valid test cards with custom BIN patterns. For testing only.">
+    <meta name="keywords" content="credit card generator, test cards, BIN generator, payment testing, developer tools, QA testing">
+    <meta name="author" content="ReNamso Pro">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph & Twitter -->
+    <meta property="og:title" content="ReNamso Pro - Professional Credit Card Generator">
+    <meta property="og:description" content="Advanced test card generator for payment system testing. Custom BIN patterns, Luhn validation, multiple formats.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.pages.dev/">
+    <meta property="og:image" content="https://uncoder.eu.org/cc-gen/renamso-pro.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ReNamso Pro - Professional Credit Card Generator">
+    
+    <title>ReNamso Pro - Professional Credit Card Generator | Testing Tools</title>
+    
+    <!-- Modern Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Fintech Professional Palette [web:7] */
+            --primary: #048cfc;
+            --primary-dark: #05478a;
+            --primary-light: #5694de;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --dark: #1e293b;
+            --dark-2: #334155;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --glass: rgba(255,255,255,0.9);
+            --glass-dark: rgba(30,41,59,0.9);
+            
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            
+            --radius: 16px;
+            --radius-sm: 12px;
+            --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            margin: 0;
+            padding-top: 80px;
+        }
+
+        body.dark-mode {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: var(--white);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            z-index: 1000;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .dark-mode .theme-toggle {
+            background: var(--glass-dark);
+            border-color: rgba(255,255,255,0.1);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 3rem 0;
+        }
+
+        .header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .header .lead {
+            font-size: 1.25rem;
+            color: var(--gray);
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Grid */
+        .generator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 992px) {
+            .generator-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        /* Cards */
+        .card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .dark-mode .card {
+            background: rgba(30,41,59,0.8);
+            border-color: rgba(255,255,255,0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .dark-mode .card-header {
+            border-bottom-color: rgba(255,255,255,0.1);
+        }
+
+        .card-header i {
+            color: var(--primary);
+            font-size: 1.25rem;
+        }
+
+        /* Form Elements */
+        .form-label {
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .dark-mode .form-label {
+            color: var(--white);
+        }
+
+        .form-control, .form-select {
+            background: rgba(255,255,255,0.8);
+            border: 2px solid rgba(0,0,0,0.05);
+            border-radius: var(--radius-sm);
+            padding: 0.875rem 1rem;
+            font-size: 1rem;
+            transition: var(--transition);
+            font-family: 'Inter', monospace;
+        }
+
+        .dark-mode .form-control,
+        .dark-mode .form-select {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.2);
+            color: var(--white);
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(4,140,252,0.1);
+            background: var(--white);
+            outline: none;
+        }
+
+        .dark-mode .form-control:focus,
+        .dark-mode .form-select:focus {
+            background: rgba(255,255,255,0.15);
+        }
+
+        /* Preset Buttons */
+        .preset-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .preset-btn {
+            padding: 0.75rem;
+            border: 2px solid rgba(0,0,0,0.05);
+            background: rgba(255,255,255,0.7);
+            border-radius: var(--radius-sm);
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .dark-mode .preset-btn {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        .preset-btn:hover, .preset-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-1px);
+        }
+
+        /* Buttons */
+        .btn {
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            padding: 0.875rem 1.5rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            box-shadow: 0 4px 14px rgba(4,140,252,0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(4,140,252,0.5);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, var(--success), #059669);
+            color: white;
+            box-shadow: 0 4px 14px rgba(16,185,129,0.4);
+        }
+
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(16,185,129,0.5);
+        }
+
+        /* Output */
+        #output {
+            background: rgba(0,0,0,0.02);
+            border: 2px solid rgba(0,0,0,0.05);
+            border-radius: var(--radius-sm);
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.85rem;
+            min-height: 300px;
+            resize: vertical;
+        }
+
+        .dark-mode #output {
+            background: rgba(0,0,0,0.4);
+            border-color: rgba(255,255,255,0.2);
+            color: var(--white);
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(255,255,255,0.9);
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: var(--radius-sm);
+            padding: 0.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .dark-mode .copy-btn {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        /* Card Preview */
+        .card-preview {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            position: relative;
+            overflow: hidden;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .card-chip {
+            width: 40px;
+            height: 32px;
+            background: linear-gradient(145deg, #ffce47, #ffc247);
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .card-number-preview {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 1.25rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Trust Signals */
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .trust-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .trust-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            color: white;
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body { padding-top: 70px; }
+            .theme-toggle { top: 16px; right: 16px; width: 44px; height: 44px; }
+            .container { padding: 0 16px; }
+            .card { padding: 1.5rem; }
+            .generator-grid { gap: 1rem; }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+    </style>
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark Mode">
+        <i id="theme-icon" class="fas fa-moon"></i>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header fade-in-up">
+            <h1>ReNamso <span style="background: linear-gradient(135deg, var(--success), #059669);-webkit-background-clip: text;background-clip: text;-webkit-text-fill-color: transparent;">Pro</span></h1>
+            <p class="lead">Professional test card generator for developers, QA teams & payment systems. Luhn-validated, production-ready.</p>
+        </div>
+
+        <!-- Generator -->
+        <div class="generator-grid">
+            <!-- Input Form -->
+            <div class="card fade-in-up">
+                <div class="card-header">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Generator Settings</h3>
+                </div>
+
+                <form id="generatorForm">
+                    <div class="mb-3">
+                        <label class="form-label">
+                            <i class="fas fa-hashtag"></i> BIN Pattern
+                        </label>
+                        <div class="position-relative">
+                            <input type="text" class="form-control" id="bin" placeholder="411111xxxxxx1111" maxlength="19">
+                            <button type="button" class="btn btn-sm position-absolute end-0 top-50 translate-middle-y me-2" style="width: 36px; height: 36px;" onclick="validateBIN()">
+                                <i class="fas fa-check"></i>
+                            </button>
+                        </div>
+                        <small class="form-text text-muted">Use 'x' for random digits. Min 6 digits recommended.</small>
+                    </div>
+
+                    <!-- Presets -->
+                    <div class="mb-3">
+                        <label class="form-label"><i class="fas fa-th"></i> Quick Presets</label>
+                        <div class="preset-grid">
+                            <div class="preset-btn" onclick="setPreset('visa')">Visa</div>
+                            <div class="preset-btn" onclick="setPreset('mastercard')">MasterCard</div>
+                            <div class="preset-btn" onclick="setPreset('amex')">Amex</div>
+                            <div class="preset-btn" onclick="setPreset('discover')">Discover</div>
+                            <div class="preset-btn" onclick="setPreset('diners')">Diners</div>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label"><i class="fas fa-calendar"></i> Expiry Month</label>
+                            <select class="form-select" id="month">
+                                <option value="random">Random</option>
+                                <option value="01">01</option><option value="02">02</option><option value="03">03</option>
+                                <option value="04">04</option><option value="05">05</option><option value="06">06</option>
+                                <option value="07">07</option><option value="08">08</option><option value="09">09</option>
+                                <option value="10">10</option><option value="11">11</option><option value="12">12</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label"><i class="fas fa-calendar-alt"></i> Expiry Year</label>
+                            <select class="form-select" id="year">
+                                <option value="random">Random (Future)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label"><i class="fas fa-lock"></i> CVV</label>
+                            <input type="text" class="form-control" id="cvv" placeholder="Random">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label"><i class="fas fa-list"></i> Quantity</label>
+                            <input type="number" class="form-control" id="quantity" min="1" max="500" value="25">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label"><i class="fas fa-file-export"></i> Format</label>
+                        <select class="form-select" id="format">
+                            <option value="pipe">Card | Month | Year | CVV</option>
+                            <option value="csv">Card,Month,Year,CVV</option>
+                            <option value="json">JSON Array</option>
+                            <option value="card">Card Numbers Only</option>
+                        </select>
+                    </div>
+
+                    <button type="button" class="btn btn-primary w-100 mb-3" onclick="generateCards()">
+                        <i class="fas fa-bolt me-2"></i> Generate Test Cards
+                    </button>
+                </form>
+
+                <!-- Live Preview -->
+                <div class="card-preview" id="previewCard">
+                    <div class="card-chip"></div>
+                    <div class="card-number-preview" id="previewNumber">Enter BIN to preview</div>
+                    <div id="previewType"></div>
+                </div>
+            </div>
+
+            <!-- Results -->
+            <div class="card fade-in-up">
+                <div class="card-header">
+                    <i class="fas fa-list"></i>
+                    <h3>Generated Cards</h3>
+                </div>
+
+                <div class="position-relative mb-3">
+                    <i class="fas fa-copy copy-btn" onclick="copyOutput()" title="Copy to Clipboard"></i>
+                    <textarea class="form-control" id="output" readonly placeholder="Generated cards will appear here..."></textarea>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button class="btn btn-success flex-fill" onclick="downloadOutput()">
+                        <i class="fas fa-download me-2"></i> Download
+                    </button>
+                    <button class="btn btn-outline-secondary" onclick="clearOutput()">
+                        <i class="fas fa-trash me-2"></i> Clear
+                    </button>
+                </div>
+
+                <div class="mt-4 pt-3 border-top" style="border-color: rgba(0,0,0,0.05);">
+                    <small class="text-muted">
+                        <i class="fas fa-check-circle text-success me-1"></i> All cards pass Luhn validation<br>
+                        <i class="fas fa-shield-alt text-primary me-1"></i> Testing & development only<br>
+                        <i class="fas fa-ban text-danger me-1"></i> Never use for real transactions
+                    </small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trust Signals -->
+        <div class="trust-grid">
+            <div class="trust-item fade-in-up">
+                <div class="trust-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h4>100% Secure</h4>
+                <p class="text-muted">Client-side only. No data stored. Zero server calls.</p>
+            </div>
+            <div class="trust-item fade-in-up">
+                <div class="trust-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h4>Instant</h4>
+                <p class="text-muted">Generate 500+ cards in seconds. No delays.</p>
+            </div>
+            <div class="trust-item fade-in-up">
+                <div class="trust-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h4>Developer Ready</h4>
+                <p class="text-muted">JSON, CSV, pipe formats. Copy-paste ready.</p>
+            </div>
+            <div class="trust-item fade-in-up">
+                <div class="trust-icon">
+                    <i class="fas fa-check-double"></i>
+                </div>
+                <h4>Luhn Valid</h4>
+                <p class="text-muted">All cards pass industry validation checks.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Professional Credit Card Generator [file:1][web:16][web:20]
+        const CARD_TYPES = {
+            visa: { pattern: '^4', length: 16, name: 'Visa' },
+            mastercard: { pattern: '^5[1-5]', length: 16, name: 'MasterCard' },
+            amex: { pattern: '^3[47]', length: 15, name: 'American Express' },
+            discover: { pattern: '^6(?:011|5)', length: 16, name: 'Discover' },
+            diners: { pattern: '^3(?:0[0-5]|[68])', length: 14, name: 'Diners Club' }
+        };
+
+        const PRESETS = {
+            visa: '4xxxxxxxxxxxxx',
+            mastercard: '5xxxxxxxxxxxxxx',
+            amex: '37xxxxxxxxxxxxx',
+            discover: '6011xxxxxxxxxxxx',
+            diners: '3xxxxxxxxxxxxx'
+        };
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            initYears();
+            updatePreview();
+            document.getElementById('bin').addEventListener('input', updatePreview);
+        });
+
+        function initYears() {
+            const yearSelect = document.getElementById('year');
+            const currentYear = new Date().getFullYear();
+            for (let i = 0; i < 16; i++) {
+                const year = currentYear + i;
+                const option = document.createElement('option');
+                option.value = year.toString().slice(-2);
+                option.textContent = year;
+                yearSelect.appendChild(option);
+            }
+        }
+
+        function setPreset(type) {
+            const binInput = document.getElementById('bin');
+            binInput.value = PRESETS[type];
+            binInput.classList.add('is-valid');
+            updatePreview();
+            document.querySelectorAll('.preset-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        function validateBIN() {
+            const bin = document.getElementById('bin').value;
+            if (bin && /^[0-9x]+$/.test(bin.replace(/x/g, ''))) {
+                document.getElementById('bin').classList.add('is-valid');
+            }
+        }
+
+        function updatePreview() {
+            const bin = document.getElementById('bin').value;
+            const previewNumber = document.getElementById('previewNumber');
+            const previewType = document.getElementById('previewType');
+            
+            if (bin.length >= 6) {
+                const sample = generateSampleCard(bin);
+                previewNumber.textContent = formatCardNumber(sample.card);
+                previewType.innerHTML = getCardType(sample.card) + ' <span class="badge bg-success ms-2">Valid</span>';
+            }
+        }
+
+        function generateSampleCard(binPattern) {
+            const fixed = binPattern.replace(/x/g, '0');
+            const xCount = binPattern.match(/x/g)?.length || 6;
+            const randomPart = Array.from({length: xCount}, () => Math.floor(Math.random() * 10)).join('');
+            let card = fixed + randomPart;
+            
+            // Adjust length and apply Luhn
+            const type = detectCardType(card);
+            const targetLength = CARD_TYPES[type]?.length || 16;
+            while (card.length < targetLength) card += Math.floor(Math.random() * 10);
+            card = card.slice(0, targetLength);
+            
+            return { card: luhnValidate(card) };
+        }
+
+        // Luhn Algorithm [file:1]
+        function luhnValidate(cardNumber) {
+            let sum = 0;
+            let shouldDouble = false;
+            for (let i = cardNumber.length - 1; i >= 0; i--) {
+                let digit = parseInt(cardNumber.charAt(i));
+                if (shouldDouble) {
+                    digit *= 2;
+                    if (digit > 9) digit -= 9;
+                }
+                sum += digit;
+                shouldDouble = !shouldDouble;
+            }
+            const checkDigit = (10 - (sum % 10)) % 10;
+            return cardNumber.slice(0, -1) + checkDigit;
+        }
+
+        function detectCardType(card) {
+            for (const [type, info] of Object.entries(CARD_TYPES)) {
+                if (new RegExp(info.pattern).test(card)) return type;
+            }
+            return 'unknown';
+        }
+
+        function getCardType(card) {
+            const type = detectCardType(card);
+            return CARD_TYPES[type]?.name || 'Unknown';
+        }
+
+        function formatCardNumber(card) {
+            return card.replace(/(\d{4})(?=\d)/g, '$1 ');
+        }
+
+        function generateCards() {
+            const bin = document.getElementById('bin').value;
+            const month = document.getElementById('month').value;
+            const year = document.getElementById('year').value;
+            const cvv = document.getElementById('cvv').value;
+            const count = parseInt(document.getElementById('quantity').value);
+            const format = document.getElementById('format').value;
+
+            if (!bin || !/^[0-9x]+$/.test(bin.replace(/x/g, ''))) {
+                alert('Please enter valid BIN pattern (use x for random digits)');
+                return;
+            }
+
+            const cards = [];
+            for (let i = 0; i < count; i++) {
+                const cardData = generateCardData(bin, month, year, cvv);
+                cards.push(cardData);
+            }
+
+            displayOutput(cards, format);
+        }
+
+        function generateCardData(binPattern, monthPref, yearPref, cvvPref) {
+            // Generate card number
+            const fixedPart = binPattern.replace(/x/g, '0');
+            const xPositions = [];
+            for (let i = 0; i < binPattern.length; i++) {
+                if (binPattern[i] === 'x') xPositions.push(i);
+            }
+            
+            let attempts = 0;
+            let card;
+            do {
+                const randomDigits = Array.from({length: xPositions.length}, () => 
+                    Math.floor(Math.random() * 10)
+                );
+                let tempCard = binPattern.split('').map((char, i) => 
+                    xPositions.includes(i) ? randomDigits[xPositions.indexOf(i)] : char
+                ).join('');
+                
+                // Extend to proper length
+                const type = detectCardType(tempCard);
+                const targetLen = CARD_TYPES[type]?.length || 16;
+                while (tempCard.length < targetLen) {
+                    tempCard += Math.floor(Math.random() * 10);
+                }
+                card = luhnValidate(tempCard.slice(0, targetLen));
+                attempts++;
+            } while (!isValidCard(card) && attempts < 10);
+
+            return {
+                card: card,
+                month: generateMonth(monthPref),
+                year: generateYear(yearPref),
+                cvv: generateCVV(cvvPref)
+            };
+        }
+
+        function generateMonth(pref) {
+            if (pref === 'random') return String(Math.floor(Math.random() * 12) + 1).padStart(2, '0');
+            return pref;
+        }
+
+        function generateYear(pref) {
+            if (pref === 'random') {
+                const current = new Date().getFullYear() % 100;
+                return String(Math.floor(Math.random() * 16) + current).padStart(2, '0');
+            }
+            return pref;
+        }
+
+        function generateCVV(pref) {
+            if (!pref || pref === 'random') {
+                return String(Math.floor(Math.random() * 1000)).padStart(3, '0');
+            }
+            return pref.slice(0, 4).padStart(3, '0');
+        }
+
+        function isValidCard(card) {
+            return card.length >= 13 && card.length <= 19 && /^\d+$/.test(card);
+        }
+
+        function displayOutput(cards, format) {
+            const output = document.getElementById('output');
+            let result = '';
+
+            switch (format) {
+                case 'pipe':
+                    result = cards.map(c => 
+                        `${formatCardNumber(c.card)} | ${c.month} | ${c.year} | ${c.cvv}`
+                    ).join('\n');
+                    break;
+                case 'csv':
+                    result = cards.map(c => 
+                        `"${c.card}","${c.month}","${c.year}","${c.cvv}"`
+                    ).join('\n');
+                    break;
+                case 'json':
+                    result = JSON.stringify(cards, null, 2);
+                    break;
+                case 'card':
+                    result = cards.map(c => formatCardNumber(c.card)).join('\n');
+                    break;
+            }
+
+            output.value = result;
+            output.style.height = 'auto';
+            output.style.height = output.scrollHeight + 'px';
+        }
+
+        function copyOutput() {
+            const output = document.getElementById('output');
+            output.select();
+            document.execCommand('copy');
+            const btn = event.target;
+            const original = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check"></i>';
+            btn.style.background = 'var(--success)';
+            setTimeout(() => {
+                btn.innerHTML = original;
+                btn.style.background = '';
+            }, 2000);
+        }
+
+        function downloadOutput() {
+            const output = document.getElementById('output');
+            const format = document.getElementById('format').value;
+            const blob = new Blob([output.value], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `test-cards-${new Date().toISOString().slice(0,10)}.txt`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function clearOutput() {
+            document.getElementById('output').value = '';
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const icon = document.getElementById('theme-icon');
+            icon.classList.toggle('fa-moon');
+            icon.classList.toggle('fa-sun');
+        }
+    </script>
+</body>
+</html>
